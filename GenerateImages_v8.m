@@ -59,5 +59,5 @@ for i = 1:length(t)
     fname_1 = sprintf('images1/frame%d.png',i);
     saveas(gcf,'fname_1.png');
 
-    [salt, gau, mynoise] = Trial_7(noise, noise_mean, noise_density, var_gauss);
+    [salt, gau, mynoise] = Switch_Trial(noise, noise_mean, noise_density, var_gauss);
 end
