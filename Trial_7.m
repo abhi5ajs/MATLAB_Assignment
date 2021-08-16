@@ -1,9 +1,9 @@
-function [salt, gau, mynoise] = Trial_7(noise, noise_mean, noise_density, var_gauss)
+function Trial_7(i, image, noise, noise_mean, noise_density, var_gauss)
 % Features -> Using imread to read the jpeg
 %%
 % User define the parameter for generating images with noise
-image = imread('fname_1.png');
-imshow(image);
+image_1 = imread(image);
+imshow(image_1);
 
 if noise == 0
     original_pic_2 = image;
@@ -11,11 +11,11 @@ if noise == 0
     title('image Without noise');
     fname_2 = sprintf('images2/frame%d.png',i);
     saveas(gcf,'fname_2.png');
-    image_1 = imread('fname_2.png');;
+    image_1 = imread('fname_2.png');
     figure(2);
     Output = image_1;
     drawnow; % Force display to update immediately.
-    imwrite(Output ,sprintf('image_Without_0%d.png',i)); % will create mask1, mask2,...
+    imwrite(Output ,sprintf('image_Without_Noise0%d.png',i)); % will create mask1, mask2,...
 
 elseif noise == 1 % If we add different valur of "d"
     original_pic_3 = image;
@@ -70,7 +70,7 @@ elseif noise == 4
     drawnow; % Force display to update immediately.
     imwrite(Output ,sprintf('image_With_Salt&Pepper_and_Gaussian_noise_0%d.png',i)); % will create mask1, mask2,...
 
-else noise == 5;
+else noise = 5;
     original_pic_7 = image;
     salt = imnoise(original_pic_7, 'salt & pepper', noise_density);
     mynoise = imnoise(original_pic_7, 'gaussian', noise_mean, var_gauss);
